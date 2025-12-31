@@ -3,97 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jash1cloud — Portfolio</title>
-  <meta name="description" content="Artistically minimal portfolio of Jash1cloud." />
+  <title>Jash1cloud | Creative Technologist</title>
   <link rel="stylesheet" href="styles.css" />
-  
   <script>
     (function() {
-      const saved = localStorage.getItem('pref-theme');
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      if (saved === 'light' || (!saved && prefersLight)) {
-        document.documentElement.classList.add('light');
-      }
+      const saved = localStorage.getItem('pref-theme') || 'dark';
+      if (saved === 'light') document.documentElement.classList.add('light');
     })();
   </script>
 </head>
 <body>
-  <div class="blob-bg" aria-hidden="true"></div>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="mesh-gradient"></div>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#" aria-label="Homepage">
-        <span class="brand-name">Jash1cloud</span>
-      </a>
-      <nav class="nav" role="navigation">
+      <a class="brand" href="#">Jash<span class="dot">.</span>cloud</a>
+      <nav class="nav">
         <ul>
           <li><a href="#projects">Work</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">Story</a></li>
+          <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
         </ul>
       </nav>
-      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="themeToggle" class="icon-btn">🌓</button>
     </div>
   </header>
 
-  <main id="main">
+  <main>
     <section class="hero container">
-      <div class="hero-content">
-        <h1 class="title">I design <br/><span class="accent">digital rhythm.</span></h1>
-        <p class="lead">Building interfaces that breathe. Focused on the intersection of technical performance and artistic clarity.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projects">View Explorations</a>
-        </div>
+      <div class="badge">Available for 2026 Projects</div>
+      <h1 class="hero-title">
+        Turning <span class="text-gradient">Complex Logic</span> <br>
+        Into Elegant <span class="italic">Motion.</span>
+      </h1>
+      <p class="hero-sub">
+        I’m Jash — a Creative Developer obsessed with high-performance interfaces and pixels that feel alive. I don't just write code; I build digital leverage.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">See the Work</a>
+        <a href="#contact" class="btn-outline">Start a Project</a>
       </div>
     </section>
 
     <section id="projects" class="section container">
-      <h2 class="section-label">Selected Work</h2>
-      <div class="projects-grid">
-        <article class="card">
-          <h3 class="card-title">Project One</h3>
-          <p class="card-desc">Minimal design system and static site generator.</p>
-          <div class="card-footer">
-            <span class="meta">HTML · CSS · JS</span>
-            <a href="#" class="link">Explore</a>
-          </div>
-        </article>
-        <article class="card">
-          <h3 class="card-title">Project Two</h3>
-          <p class="card-desc">Interactive data visualizations with a focus on motion.</p>
-          <div class="card-footer">
-            <span class="meta">D3 · Canvas</span>
-            <a href="#" class="link">Explore</a>
-          </div>
-        </article>
+      <div class="section-header">
+        <h2 class="section-title">Featured Explorations</h2>
+        <p class="section-sub">A collection of technical experiments and solved problems.</p>
       </div>
-    </section>
-
-    <section id="about" class="section container">
-      <h2 class="section-label">Identity</h2>
-      <div class="about-content">
-        <p>I’m a frontend developer focused on clean code, performance, and clear design. I enjoy building product interfaces that feel fast and intuitive. Outside work I like photography, coffee, and learning new design systems.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section container">
-      <h2 class="section-label">Inquiry</h2>
-      <form class="contact-form" onsubmit="openMail(event)">
-        <div class="form-group">
-          <input id="name" name="name" required placeholder="Name" />
-          <input id="email" name="email" type="email" required placeholder="Email" />
+      
+      <div class="project-grid">
+        <div class="glass-card">
+          <div class="card-tag">SaaS / WebApp</div>
+          <h3>Project Nexus</h3>
+          <p>Re-engineering the workflow for distributed teams with zero-latency updates.</p>
+          <div class="card-links">
+            <a href="#">Case Study →</a>
+          </div>
         </div>
-        <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
-        <button type="submit" class="btn primary">Send Message</button>
-      </form>
+        
+        <div class="glass-card">
+          <div class="card-tag">Creative UI</div>
+          <h3>Aether Design System</h3>
+          <p>A custom-built library of fluid components optimized for tactile feedback.</p>
+          <div class="card-links">
+            <a href="#">Case Study →</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="container">
-    <div class="footer-inner">
-      <p class="small muted">© <span id="year"></span> Jash1cloud. Built with care.</p>
-    </div>
+    <p>© <span id="year"></span> Jash1cloud. Built while the world was sleeping.</p>
   </footer>
 
   <script src="main.js" defer></script>
