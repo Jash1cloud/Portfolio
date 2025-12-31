@@ -1,50 +1,38 @@
 (function() {
   const themeToggle = document.getElementById('themeToggle');
-  const yearEl = document.getElementById('year');
-  const storageKey = 'pref-theme';
-
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  function applyTheme(t) {
-    if (t === 'light') {
-      document.documentElement.classList.add('light');
-    } else {
-      document.documentElement.classList.remove('light');
-    }
-    localStorage.setItem(storageKey, t);
-  }
-
-  themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.classList.contains('light');
-    applyTheme(isLight ? 'dark' : 'light');
+  const glow = document.getElementById('cursorGlow');
+  
+  // Follow Mouse with Glow
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
   });
 
-  // Artistic Reveal on Scroll
-  const observerOptions = { threshold: 0.15 };
+  // Smooth Section Reveals
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
+        entry.target.classList.add('visible');
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.1 });
 
-  document.querySelectorAll('section, .card').forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "all 0.9s cubic-bezier(0.23, 1, 0.32, 1)";
-    observer.observe(el);
+  document.querySelectorAll('.glass-card').forEach(card => observer.observe(card));
+
+  // Theme Toggler
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    localStorage.setItem('pref-theme', isLight ? 'light' : 'dark');
   });
 
-  // Mailer
-  window.openMail = function(ev) {
-    ev.preventDefault();
-    const f = ev.target;
-    const name = encodeURIComponent(f.name.value.trim());
-    const email = encodeURIComponent(f.email.value.trim());
-    const message = encodeURIComponent(f.message.value.trim());
-    const mailto = `mailto:hello@jash1cloud.com?subject=Portfolio Inquiry from ${name}&body=From: ${email}%0D%0A%0D%0A${message}`;
-    window.location.href = mailto;
+  // Current Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact Form Helper
+  window.openMail = (e) => {
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const body = encodeURIComponent(document.getElementById('message').value);
+    window.location.href = `mailto:hello@jash1cloud.com?subject=Strategic Inquiry from ${name}&body=${body}`;
   };
 })();
