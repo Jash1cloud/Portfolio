@@ -5,8 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jash1cloud — Portfolio</title>
   <meta name="description" content="Minimal portfolio of Jash1cloud — developer, designer, maker." />
+  
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/logo.svg" />
+
+  <script>
+    (function() {
+      const storageKey = 'pref-theme';
+      const saved = localStorage.getItem(storageKey);
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (saved === 'light' || (!saved && prefersLight)) {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -14,7 +26,7 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="#" aria-label="Homepage">
-        <img src="assets/logo.svg" alt="" width="36" height="36" />
+        <img src="assets/logo.svg" alt="Logo" width="36" height="36" />
         <span class="brand-name">Jash1cloud</span>
       </a>
 
@@ -43,7 +55,6 @@
         </p>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <!-- Decorative: simple grid / pattern -->
         <svg width="280" height="180" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="visual">
           <rect x="0" y="0" width="280" height="180" rx="12" fill="var(--card)" />
           <g opacity="0.12" fill="none" stroke="var(--accent)">
@@ -59,7 +70,7 @@
       <h2 id="about-heading" class="section-title">About</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>I’m a frontend developer focused on clean code, performance, and clear design. I enjoy building product interfaces that feel fast and intuitive. I work primarily with HTML, CSS, and JavaScript, and I favour small, well-structured codebases.</p>
+          <p>I’m a frontend developer focused on clean code, performance, and clear design. I enjoy building product interfaces that feel fast and intuitive.</p>
           <p>Outside work I like photography, coffee, and learning new design systems.</p>
         </div>
         <dl class="about-meta">
@@ -68,12 +79,8 @@
             <dd>Remote</dd>
           </div>
           <div>
-            <dt>Available for</dt>
-            <dd>Freelance, Contract, Mentoring</dd>
-          </div>
-          <div>
             <dt>Stack</dt>
-            <dd>HTML · CSS · JS · React (optional)</dd>
+            <dd>HTML · CSS · JS · React</dd>
           </div>
         </dl>
       </div>
@@ -85,60 +92,30 @@
         <article class="card">
           <div class="card-body">
             <h3 class="card-title">Project One</h3>
-            <p class="card-desc">A minimal design system and static site generator for fast publishing.</p>
+            <p class="card-desc">A minimal design system and static site generator.</p>
             <p class="card-meta">HTML · CSS · Netlify</p>
             <div class="card-actions">
-              <a class="link" href="#" target="_blank" rel="noopener">View</a>
-              <a class="link" href="#" target="_blank" rel="noopener">Code</a>
+              <a class="link" href="#">View</a>
+              <a class="link" href="#">Code</a>
             </div>
           </div>
         </article>
-
-        <article class="card">
-          <div class="card-body">
-            <h3 class="card-title">Project Two</h3>
-            <p class="card-desc">Interactive data visualizations with a lightweight component library.</p>
-            <p class="card-meta">D3 · JS · Accessibility</p>
-            <div class="card-actions">
-              <a class="link" href="#" target="_blank" rel="noopener">View</a>
-              <a class="link" href="#" target="_blank" rel="noopener">Code</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card muted">
-          <div class="card-body">
-            <h3 class="card-title">Project Three</h3>
-            <p class="card-desc">Mobile-first e-commerce UI prototype with focus on performance.</p>
-            <p class="card-meta">Performance · PWA</p>
-            <div class="card-actions">
-              <a class="link" href="#" target="_blank" rel="noopener">View</a>
-              <a class="link" href="#" target="_blank" rel="noopener">Code</a>
-            </div>
-          </div>
-        </article>
-      </div>
+        </div>
     </section>
 
     <section id="contact" class="section container" aria-labelledby="contact-heading">
       <h2 id="contact-heading" class="section-title">Contact</h2>
-      <p>Want to work together or ask a question? Send a message and I’ll reply within a few days.</p>
-
       <form class="contact-form" onsubmit="openMail(event)">
         <label for="name">Name</label>
         <input id="name" name="name" required placeholder="Your name" />
-
         <label for="email">Email</label>
         <input id="email" name="email" type="email" required placeholder="you@example.com" />
-
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="6" required placeholder="Brief message..."></textarea>
-
         <div class="form-actions">
           <button type="submit" class="btn primary">Send</button>
           <a class="btn ghost" href="mailto:hello@jash1cloud.com">Or email directly</a>
         </div>
-        <p class="small muted">No tracking, no spam — just a normal email.</p>
       </form>
     </section>
   </main>
@@ -149,11 +126,10 @@
       <ul class="social">
         <li><a href="#" rel="me">GitHub</a></li>
         <li><a href="#" rel="me">Twitter</a></li>
-        <li><a href="#" rel="me">LinkedIn</a></li>
       </ul>
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
