@@ -74,6 +74,21 @@
     </section>
   </main>
 
+  <section id="contact" class="section container">
+  <div class="glass-card">
+    <h3>Start a Project</h3>
+    <form onsubmit="openMail(event)">
+      <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+        <input type="text" id="name" placeholder="Your Name" required 
+               style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 8px;">
+        <textarea id="message" placeholder="Project Details" rows="4" required
+               style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 8px;"></textarea>
+        <button type="submit" class="btn-primary">Send Inquiry</button>
+      </div>
+    </form>
+  </div>
+</section>
+  
   <footer class="container">
     <p>© <span id="year"></span> Jash1cloud. Built while the world was sleeping.</p>
   </footer>
