@@ -78,12 +78,21 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* Modern Project Grid Layout */
+/* Add breathing room to the bottom of the grid */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2.5rem; /* Creates clear separation between cards */
-  margin-top: 3rem;
+  gap: 2.5rem;
+  margin: 3rem 0 6rem 0; /* Added 6rem bottom margin */
+}
+
+/* Style the footer to prevent clashing */
+footer {
+  padding: 4rem 0; /* Adds vertical space around the copyright */
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.6;
 }
 
 /* Enhanced Glass Card Design */
