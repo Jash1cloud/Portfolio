@@ -6,6 +6,7 @@
   <title>Jash1cloud | Creative Technologist</title>
   <link rel="stylesheet" href="styles.css" />
   <script>
+    // Theme initialization to prevent flicker
     (function() {
       const saved = localStorage.getItem('pref-theme') || 'dark';
       if (saved === 'light') document.documentElement.classList.add('light');
@@ -22,7 +23,6 @@
       <nav class="nav">
         <ul>
           <li><a href="#projects">Work</a></li>
-          <li><a href="#about">Story</a></li>
           <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
         </ul>
       </nav>
@@ -31,25 +31,24 @@
   </header>
 
   <main>
-    <section class="hero container">
+    <section class="section container">
       <div class="badge">Available for 2026 Projects</div>
       <h1 class="hero-title">
         Turning <span class="text-gradient">Complex Logic</span> <br>
         Into Elegant <span class="italic">Motion.</span>
       </h1>
-      <p class="hero-sub">
-        I’m Jash — a Creative Developer obsessed with high-performance interfaces and pixels that feel alive. I don't just write code; I build digital leverage.
+      <p class="hero-sub" style="max-width: 600px; font-size: 1.2rem; opacity: 0.8;">
+        I’m Jash — a Creative Developer building high-performance interfaces and pixels that feel alive.
       </p>
-      <div class="hero-btns">
+      <div class="hero-btns" style="margin-top: 2rem;">
         <a href="#projects" class="btn-primary">See the Work</a>
-        <a href="#contact" class="btn-outline">Start a Project</a>
       </div>
     </section>
 
     <section id="projects" class="section container">
       <div class="section-header">
-        <h2 class="section-title">Featured Explorations</h2>
-        <p class="section-sub">A collection of technical experiments and solved problems.</p>
+        <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900;">Featured Explorations</h2>
+        <p class="section-sub" style="opacity: 0.7; margin-bottom: 2rem;">A collection of technical experiments and solved problems.</p>
       </div>
       
       <div class="project-grid">
@@ -72,22 +71,35 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <section id="contact" class="section container">
-  <div class="glass-card">
-    <h3>Start a Project</h3>
-    <form onsubmit="openMail(event)">
-      <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
-        <input type="text" id="name" placeholder="Your Name" required 
-               style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 8px;">
-        <textarea id="message" placeholder="Project Details" rows="4" required
-               style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1rem; border-radius: 8px;"></textarea>
-        <button type="submit" class="btn-primary">Send Inquiry</button>
+    <section id="contact" class="section container">
+      <div class="glass-card" style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Start a Project</h2>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">Fill in your details below to send an email directly to me.</p>
+        
+        <form onsubmit="openMail(event)" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <label for="name" style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">NAME</label>
+              <input type="text" id="name" placeholder="Your Name" required 
+                     style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1.2rem; border-radius: 12px;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <label for="email" style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">EMAIL ADDRESS</label>
+              <input type="email" id="email" placeholder="email@example.com" required 
+                     style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1.2rem; border-radius: 12px;">
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label for="message" style="font-size: 0.8rem; font-weight: 700; opacity: 0.6;">PROJECT DETAILS</label>
+            <textarea id="message" placeholder="What are you looking to build?" rows="5" required
+                   style="background: var(--glass); border: 1px solid var(--glass-border); color: white; padding: 1.2rem; border-radius: 12px; font-family: inherit;"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Send Inquiry</button>
+        </form>
       </div>
-    </form>
-  </div>
-</section>
+    </section>
+  </main>
   
   <footer class="container">
     <p>© <span id="year"></span> Jash1cloud. Built while the world was sleeping.</p>
