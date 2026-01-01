@@ -28,11 +28,14 @@
   // Current Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Contact Form Helper
   window.openMail = (e) => {
-    e.preventDefault();
-    const name = encodeURIComponent(document.getElementById('name').value);
-    const body = encodeURIComponent(document.getElementById('message').value);
-    window.location.href = `mailto:hello@jash1cloud.com?subject=Strategic Inquiry from ${name}&body=${body}`;
-  };
+  e.preventDefault();
+  const name = encodeURIComponent(document.getElementById('name').value);
+  const message = encodeURIComponent(document.getElementById('message').value);
+  // Updated to your specific email address
+  const recipient = "jashchauhan1210@gmail.com";
+  const subject = `Strategic Inquiry from ${name}`;
+  
+  window.location.href = `mailto:${recipient}?subject=${subject}&body=${message}`;
+};
 })();
