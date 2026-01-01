@@ -28,14 +28,20 @@
   // Current Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  window.openMail = (e) => {
+ // Replace the window.openMail block in your main.js
+window.openMail = (e) => {
   e.preventDefault();
+  
   const name = encodeURIComponent(document.getElementById('name').value);
+  const userEmail = encodeURIComponent(document.getElementById('email').value);
   const message = encodeURIComponent(document.getElementById('message').value);
-  // Updated to your specific email address
+  
   const recipient = "jashchauhan1210@gmail.com";
   const subject = `Strategic Inquiry from ${name}`;
   
-  window.location.href = `mailto:${recipient}?subject=${subject}&body=${message}`;
+  // Includes the user's email in the message body for easy replying
+  const body = `From: ${name} (${userEmail})%0D%0A%0D%0AMessage:%0D%0A${message}`;
+  
+  window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
 };
 })();
