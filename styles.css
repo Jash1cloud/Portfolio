@@ -78,12 +78,23 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* Add breathing room to the bottom of the grid */
+/* 1. Add universal section spacing */
+section {
+  padding: 8rem 0; /* Creates large, modern gaps between sections */
+}
+
+/* 3. Ensure the contact card doesn't touch the edges on mobile */
+#contact .glass-card {
+  margin-top: 2rem;
+}
+
+/* 2. Update the project grid margin */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2.5rem;
-  margin: 3rem 0 6rem 0; /* Added 6rem bottom margin */
+  margin-top: 3rem; 
+  /* Removed the bottom margin here since the section padding handles it */
 }
 
 /* Style the footer to prevent clashing */
