@@ -86,10 +86,11 @@ section {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* Forces exactly 2 columns on desktop */
+  grid-template-columns: 1fr 1fr; 
   gap: 2.5rem;
-  margin-top: 4rem; 
-  margin-bottom: 0; /* Explicitly remove bottom margin */
+  margin-top: 4rem;
+  align-items: stretch; /* Ensures cards in the same row have the same height */
 }
 
 /* Style the footer to prevent clashing */
@@ -108,11 +109,11 @@ footer {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border);
   padding: 3.5rem 2.5rem;
-  border-radius: 32px; /* Smoother, more modern corners */
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+  height: 100%; /* Keeps cards uniform */
+  box-sizing: border-box; /* Prevents padding from breaking the width */
 }
 
 .glass-card:hover {
@@ -252,4 +253,11 @@ main > section { animation: fadeInUp 1s ease forwards; }
   cursor: pointer;
   font-size: 1.2rem;
   padding: 0.5rem;
+}
+
+/* Mobile Responsiveness: Stack them back to 1 column on phones */
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
 }
