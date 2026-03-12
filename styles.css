@@ -308,26 +308,29 @@ main > section { animation: fadeInUp 1s ease forwards; }
 }
 
 .profile-container {
-  width: 200px; 
-  height: 200px;
+  width: 250px;       /* Increased width for a portrait look */
+  height: 350px;      /* Set height taller than width for rectangle */
   overflow: hidden;
-  border-radius: 50%; 
-  border: 3px solid #333;
-  margin: 20px auto; /* This centers the image horizontally */
+  border-radius: 0;   /* SET TO 0: This removes the circle effect */
+  border: 4px solid #333;
+  
+  /* ALIGNMENT TO LEFT */
+  margin-left: 0;     /* Removes the "auto" that was centering it */
+  margin-right: auto; 
+  margin-bottom: 20px;
 }
 
 .profile-pic {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;  /* Ensures the photo fills the rectangle without stretching */
   filter: grayscale(100%);
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
 .profile-container:hover .profile-pic {
   filter: grayscale(0%);
-  transform: scale(1.15);
-  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .social-links {
