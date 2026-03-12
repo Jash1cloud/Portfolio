@@ -329,3 +329,28 @@ main > section { animation: fadeInUp 1s ease forwards; }
   transform: scale(1.15);
   cursor: pointer;
 }
+
+.social-links {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    justify-content: center; /* Centers them horizontally */
+    margin-top: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #555; /* Default gray color */
+    font-size: 2rem; /* Icon size */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effects for a pro feel */
+.social-links a:hover {
+    transform: translateY(-5px); /* Slight lift up */
+}
+
+/* Custom colors on hover */
+.social-links a[title="GitHub"]:hover { color: #333; }
+.social-links a[title="LinkedIn"]:hover { color: #0077b5; }
+.social-links a[title="LeetCode"]:hover { color: #ffa116; }
+.social-links a[title="Codeforces"]:hover { color: #1a0dab; }
