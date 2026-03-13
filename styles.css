@@ -336,7 +336,7 @@ main > section { animation: fadeInUp 1s ease forwards; }
 
 .social-links {
     display: flex;
-    gap: 20px; /* Space between icons */
+    gap: 35px; /* Space between icons */
     justify-content: center; /* Centers them horizontally */
     margin-top: 20px;
 }
