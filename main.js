@@ -1,6 +1,11 @@
 (function() {
   const themeToggle = document.getElementById('themeToggle');
   const glow = document.getElementById('cursorGlow');
+
+  // Check for saved user preference on load
+    const savedTheme = localStorage.getItem('pref-theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
   
   // Follow Mouse with Glow effect
   document.addEventListener('mousemove', (e) => {
@@ -27,8 +32,8 @@
 
   // Theme Toggler logic
   themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.classList.toggle('light');
-    localStorage.setItem('pref-theme', isLight ? 'light' : 'dark');
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('pref-theme', isDark ? 'dark' : 'light');
   });
 
   // Automatically update the year in the footer
